@@ -53,35 +53,38 @@ function find(arr, val) {
 /** isPalindrome: checks whether a string is a palindrome or not. */
 //abczcba
 function isPalindrome(str) {
-  // if(str.length === 1) return true
-  // if(str === "") return true
+  if(str.length === 1) return true
+  if(str === "") return true
 
-  // if(str[0].toLowerCase() !== str.slice(-1).toLowerCase()){
-  //   return false
-  // } else{
-  //   return isPalindrome(str.slice(1,-1))
-  // }
-  
-  //NOON
-  let index = 0;
-  console.log("index>>>>>>",index)
-  if(index === str.length-1 ) return;
-  let originalStr = str;
-  let reverseStr = "";
-  while (index <= str.length-1) {
-
-    isPalindrome(str[index]);
-    index++
-    reverseStr += str[0];
+  if(str[0].toLowerCase() !== str.slice(-1).toLowerCase()){
+    return false
+  } else{
+    return isPalindrome(str.slice(1,-1))
   }
-  return originalStr === reverseStr;
 }
 
 /** revString: return a copy of a string, but in reverse. */
-
+//"happy" ==> "yppah"
 function revString(str) {
+  if(str.length === 0){
+    return "";
+  }
 
+  let reverse = revString(str.slice(1));
+  return reverse + str[0];
 }
+
+//GOING UP
+// function revString(str, res=""){
+//   if(str.length === 0){
+//     return res;
+//   }
+
+//   res += str.slice(-1);
+
+//   return revString(str.slice(0,-1), res);
+// }
+
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 
