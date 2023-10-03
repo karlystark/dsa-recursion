@@ -2,7 +2,7 @@
 
 // [1,2,3]
 function product(nums) {
-  if(nums.length === 0){
+  if (nums.length === 0) {
     return 1;
   }
 
@@ -13,7 +13,7 @@ function product(nums) {
 /** longest: return the length of the longest word in an array of words. */
 //["hello", "hi", "hola"]
 function longest(words) {
-  if(words.length === 0){
+  if (words.length === 0) {
     return 0;
   }
 
@@ -27,7 +27,7 @@ function longest(words) {
 
 //["hello"] => "hlo"
 function everyOther(str) {
-  if(str.length === 0){
+  if (str.length === 0) {
     return "";
   }
 
@@ -39,21 +39,42 @@ function everyOther(str) {
 //["duck", "cat", "pony"] "porcupine" => false
 function find(arr, val) {
 
-if(arr.length === 0){
-  return false;
-}
+  if (arr.length === 0) {
+    return false;
+  }
 
-if(arr[0] === val){
-  return true;
-}
+  if (arr[0] === val) {
+    return true;
+  }
 
-return find(arr.slice(1), val);
+  return find(arr.slice(1), val);
 }
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
-
+//abczcba
 function isPalindrome(str) {
+  // if(str.length === 1) return true
+  // if(str === "") return true
 
+  // if(str[0].toLowerCase() !== str.slice(-1).toLowerCase()){
+  //   return false
+  // } else{
+  //   return isPalindrome(str.slice(1,-1))
+  // }
+  
+  //NOON
+  let index = 0;
+  console.log("index>>>>>>",index)
+  if(index === str.length-1 ) return;
+  let originalStr = str;
+  let reverseStr = "";
+  while (index <= str.length-1) {
+
+    isPalindrome(str[index]);
+    index++
+    reverseStr += str[0];
+  }
+  return originalStr === reverseStr;
 }
 
 /** revString: return a copy of a string, but in reverse. */
