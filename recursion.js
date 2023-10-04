@@ -92,15 +92,29 @@ function findIndex(arr, val) {
   if(arr.length === 0) return -1;
   if(arr[0] === val) return 0;
 
-  return findIndex(arr.slice(1),val) +1
+  //truthy/falsy check to make sure we pass -1 down the stack if -1 + 1 (0) occurs
+  return findIndex(arr.slice(1),val) + 1 || -1
 
 }
 
 /** gatherStrings: given an object, return an array of all of the string values. */
 
 function gatherStrings(obj) {
+  let strings = [];
+  for(let key in obj){
+    if (typeof obj[key] === "object"){
+      return gatherStrings(obj[key]);
+      //solution has strings.push(...gatherStrings(obj[key]));
+    }
+    if (typeof obj[key] === "string"){
+        strings.push(obj[key]);
+    }
+  }
+  return strings;
+  }
 
-}
+
+
 
 // FURTHER STUDY
 
