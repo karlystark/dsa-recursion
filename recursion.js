@@ -87,8 +87,12 @@ function revString(str) {
 
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
-
+//['water','keys','phone']    'keys'
 function findIndex(arr, val) {
+  if(arr.length === 0) return -1;
+  if(arr[0] === val) return 0;
+
+  return findIndex(arr.slice(1),val) +1
 
 }
 
